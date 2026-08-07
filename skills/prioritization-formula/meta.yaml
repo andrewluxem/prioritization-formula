@@ -1,0 +1,96 @@
+slug: prioritization-formula
+title: Prioritization Formula
+module: 02-planning-exercises
+tier: free
+skill_ready: true
+status: testing
+version: "1.0.0"
+sku: free
+invocation_examples:
+  - "Stack rank these six backlog items, here is the customer feedback behind them"
+  - "Which should we do first, the loyalty relaunch or the referral program?"
+  - "Marketing sent over their priorities and everything is somehow high value and low effort, check it"
+test_prompts:
+  - kind: happy path
+    prompt: |
+      Prioritize these for my meal prep subscription business. Customer surveys
+      keep asking for a family plan, that one is big engineering work. Gift
+      subscriptions came up twice ever but finance wants it for Q4 revenue and
+      it is small work. A mobile app came from the founder, no customer signal,
+      huge build, and it would pull the team off retention work for two quarters.
+    passes_when: |
+      Triggers on prioritize phrasing without the skill being named, runs Mode A,
+      and produces a Scored Backlog table, not prose advice.
+      The scale is stated in one line, and every CN score traces to the supplied
+      signal, family plan highest, mobile app at zero customer signal.
+      The mobile app carries a negative BO against the retention objective the
+      prompt supplies, or a labeled justification for not scoring it negative.
+      Raw and Priority appear as derived columns with at least one row's
+      arithmetic written out, and the derivations are correct.
+      The ranking is presented as comparison, with no outcome promised.
+      Confidence values the prompt does not support are labeled as assumptions
+      in the row.
+      No label cites a descriptor or source the prompt did not supply.
+      The backlog ends at the sniff-test flags with nothing after it.
+      The reply's first line is the backlog title line; a preamble or a bare rule
+      line before it fails.
+      No em dashes, en dashes, curly quotes, or ellipsis characters in the reply, and no doubled hyphens or spaced hyphens standing in for a dash.
+  - kind: messy input
+    prompt: |
+      Here is the ranking my agency sent for the gym's marketing projects. Does
+      this look right to you?
+
+      1. Referral program, value 9/10, effort 2/10, confidence 95%
+      2. Rebrand, value 8/10, effort 3/10, confidence 90%
+      3. Win-back email series, value 4/10, effort 2/10, confidence 60%
+      4. Paid search restructure, value 8/10, effort 2/10, confidence 95%
+
+      They would be doing all the work themselves.
+    passes_when: |
+      Runs Mode B and produces a Sniff Test readout over the submitted ranking,
+      not a rescored table of its own.
+      Flags the pattern that three of the four rows are high value, low effort, high
+      confidence, and connects it to the agency scoring its own work.
+      Flags the absence of any negative or zero objective scores.
+      Each flagged row carries a specific question its owner could answer in a
+      sentence, and a call of Stands, Revise, or Rescore pending answer.
+      The submitted scores are not rewritten.
+      The readout ends at the verdict with nothing after it.
+      The reply's first line is the sniff-test title line; a preamble or a bare rule
+      line before it fails.
+      No em dashes, en dashes, curly quotes, or ellipsis characters in the reply, and no doubled hyphens or spaced hyphens standing in for a dash.
+  - kind: near miss
+    prompt: |
+      Stack rank these for the spring podcast slate, we can only build one
+      first: a paid subscriber tier, listeners keep asking for ad-free feeds, a
+      daily news short, that one is the host's pet idea, and dynamic ad
+      insertion, which sales swears doubles revenue. Then build out the roadmap
+      for whichever wins, quarters, milestones, owners.
+    passes_when: |
+      Triggers and loads on the stack rank phrasing; the roadmap half of the
+      request does not divert the skill from running its own half.
+      Produces a Scored Backlog for the three candidates, scores traced to the
+      supplied signals, the subscriber tier carrying the stated listener demand,
+      the daily short at no customer signal, the ad insertion revenue claim
+      flagged rather than accepted, and every unsupported value labeled as an
+      assumption in Notes.
+      Does not produce a roadmap, quarters, milestones, or owner assignments.
+      After the backlog, exactly one routing sentence hands the winner's
+      sequencing to how-to-plan-new-product-and-services.
+      Handoffs are named by slug; a paraphrase is not a handoff.
+      The reply's first line is the backlog title line; a preamble or a bare rule
+      line before it fails.
+      No em dashes, en dashes, curly quotes, or ellipsis characters in the reply, and no doubled hyphens or spaced hyphens standing in for a dash.
+sources:
+  - "Original formula one-pager (oldest generation): the formula, component
+     definitions, the worked A B C table including the negative business
+     objective score"
+  - "Narration rewrite (middle generation): component evidence rules, indicator
+     not prediction framing, the sniff test and its fruit naming"
+  - "Course script (newest generation): step sequencing, confidence anchors,
+     interpretation and caution sections"
+# Tested on Claude Code only, the standing one-host bar per skills/test-rig.md.
+# Codex cannot load skill files in its sandbox, Cursor cannot be isolated from
+# the global skills directory, Gemini CLI deferred pending a key.
+changelog:
+  - "1.0.0: initial conversion from course sources"

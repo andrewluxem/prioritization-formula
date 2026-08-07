@@ -1,0 +1,14 @@
+{
+  "name": "prioritization-formula",
+  "owner": { "name": "Andrew Luxem" },
+  "description": "prioritization-formula, score and rank competing work with the arithmetic shown",
+  "plugins": [
+    {
+      "name": "prioritization-formula",
+      "source": "./",
+      "description": "Two modes ending in a working document: Scored Backlog and Sniff Test. Static: no network calls, no remote fetch, no auto-update. Version-pinned.",
+      "category": "productivity",
+      "tags": ["prioritization", "backlog", "roadmap", "planning"]
+    }
+  ]
+}
