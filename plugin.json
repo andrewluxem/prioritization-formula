@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "prioritization-formula",
+  "version": "1.0.0",
+  "description": "Score and rank competing work with the prioritization formula: value over effort times confidence, with the arithmetic shown. Stack-rank backlogs, decide what to build first.",
+  "author": {
+    "name": "Some Luck Productions LLC",
+    "url": "https://andrewluxem.com"
+  },
+  "homepage": "https://github.com/andrewluxem/prioritization-formula",
+  "repository": "https://github.com/andrewluxem/prioritization-formula",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Prioritization Formula",
+        "shortDescription": "Score and rank your backlog",
+        "longDescription": "Scores and stack-ranks competing features, projects, or initiatives with one formula, value over effort times confidence, and shows the arithmetic for every row so the ranking can be argued with. The Sniff Test readout challenges scores that look inflated, especially when the person submitting them benefits. Use it when deciding what to build or do first, comparing work across teams, or before building a roadmap. Built from the Prioritization Formula playbook at andrewluxem.com. Static skill: no network calls.",
+        "developerName": "Some Luck Productions LLC",
+        "category": "Productivity",
+        "capabilities": [
+          "Scored, stack-ranked backlogs with arithmetic shown",
+          "Sniff tests that challenge suspicious scores",
+          "Decide what to build or do first"
+        ],
+        "websiteURL": "https://github.com/andrewluxem/prioritization-formula",
+        "supportURL": "https://github.com/andrewluxem/prioritization-formula/issues",
+        "privacyPolicyURL": "https://andrewluxem.com/plugins/privacy",
+        "defaultPrompt": [
+          "Stack-rank this backlog",
+          "What should we build first?",
+          "Does this prioritization look right?"
+        ],
+        "brandColor": "#7A2E3A",
+        "brandColorDark": "#F0A3AF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}
