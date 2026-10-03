@@ -70,6 +70,8 @@ Then invoke it: `use the prioritization-formula skill to stack rank this backlog
 
 Portable by design: it is plain Markdown with no runtime, so it works anywhere a folder of skill files works.
 
+Also available as a ChatGPT plugin (OpenAI plugin directory, in review).
+
 ## Usage
 
 ```
