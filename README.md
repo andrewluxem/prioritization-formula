@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner.svg" alt="prioritization-formula: A portable agent skill that scores and ranks competing work with the formula's arithmetic shown: a Scored Backlog and a Sniff Test that challenges suspicious scores. Static: no remote fetch, no auto-update."></p>
+
 # prioritization-formula
 
 A small, static agent skill that scores and ranks competing work and shows its arithmetic. Ask it which thing to build first and it hands back a table you can argue with, not a preference it asserts.
